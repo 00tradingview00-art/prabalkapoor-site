@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prabal Kapoor — Finance · Strategy · Markets</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G73BSSCHE6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G73BSSCHE6');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:    #05080f;
+  --bg2:   #080c17;
+  --card:  #0c1221;
+  --card2: #101726;
+  --border: rgba(59,130,246,0.14);
+  --border-b: rgba(59,130,246,0.45);
+  --gold:  #3b82f6;
+  --gold-b: #60a5fa;
+  --text:  #eef2f8;
+  --muted: #8b98b4;
+  --dim:   #3a4560;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(5,8,15,0.88);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:0 6%;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;letter-spacing:.04em;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{padding:9px 22px;border:1px solid var(--border-b);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--gold);color:var(--bg)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;padding:0 6%;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 90% 70% at 65% 35%,rgba(201,168,76,.05) 0%,transparent 65%),
+    radial-gradient(ellipse 50% 80% at 5% 90%,rgba(10,20,60,.6) 0%,transparent 60%);
+}
+.hero-bg-glyph{
+  position:absolute;right:-1%;top:50%;transform:translateY(-52%);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(160px,24vw,340px);font-weight:700;line-height:1;
+  color:transparent;-webkit-text-stroke:1px rgba(201,168,76,.045);
+  user-select:none;pointer-events:none;letter-spacing:-.05em;
+  opacity:0;animation:fadeIn 2s .9s ease forwards;
+}
+.hero-inner{
+  max-width:1200px;margin:0 auto;width:100%;padding-top:80px;position:relative;
+}
+.hero-tag{
+  font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:28px;display:flex;align-items:center;gap:14px;
+  opacity:0;animation:fadeUp .8s .2s ease forwards;
+}
+.hero-tag::before{content:'';width:40px;height:1px;background:var(--gold)}
+.hero-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(80px,12vw,160px);font-weight:400;line-height:.88;
+  letter-spacing:.02em;color:var(--text);
+  margin-bottom:18px;
+  opacity:0;animation:fadeUp .9s .3s ease forwards;
+}
+.hero-name .gold{color:var(--gold)}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(18px,2.2vw,26px);font-weight:400;font-style:italic;
+  color:var(--muted);margin-bottom:32px;
+  opacity:0;animation:fadeUp .9s .45s ease forwards;
+}
+.hero-bio{
+  font-size:15px;color:var(--muted);line-height:1.95;
+  max-width:560px;margin-bottom:44px;
+  opacity:0;animation:fadeUp .9s .55s ease forwards;
+}
+.hero-actions{
+  display:flex;gap:16px;flex-wrap:wrap;margin-bottom:72px;
+  opacity:0;animation:fadeUp .9s .65s ease forwards;
+}
+.btn-gold{
+  padding:14px 36px;background:var(--gold);color:var(--bg);
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+  display:inline-block;transition:background .2s,transform .2s;border:none;cursor:pointer;
+}
+.btn-gold:hover{background:var(--gold-b);transform:translateY(-2px)}
+.btn-outline{
+  padding:14px 36px;background:transparent;
+  border:1px solid rgba(238,242,248,.18);color:var(--muted);
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+  display:inline-block;transition:border-color .2s,color .2s;
+}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--border);max-width:480px;
+  opacity:0;animation:fadeUp .9s .75s ease forwards;
+}
+.stat-box{padding:24px 0 0;border-right:1px solid var(--border)}
+.stat-box:last-child{border-right:none}
+.stat-box:not(:first-child){padding-left:28px}
+.snum{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:38px;font-weight:400;color:var(--gold);
+  line-height:1;display:block;margin-bottom:5px;
+  letter-spacing:.02em;
+}
+.slbl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);display:block}
+
+/* ── MARQUEE ── */
+.marquee-band{
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:var(--card);padding:14px 0;overflow:hidden;white-space:nowrap;
+}
+.marquee-track{display:inline-flex;animation:marquee 28s linear infinite}
+.mi{
+  font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);padding:0 36px;display:inline-flex;align-items:center;gap:36px;
+}
+.mi::after{content:'◆';color:var(--gold);font-size:6px}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SECTIONS ── */
+.sec{padding:100px 6%;max-width:1400px;margin:0 auto}
+.sec.full-w{max-width:none;padding:100px 6%}
+.sec-label{
+  font-size:10px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;
+  display:flex;align-items:center;gap:12px;
+}
+.sec-label::before{content:'';width:22px;height:1px;background:var(--gold)}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(38px,4.5vw,60px);font-weight:600;line-height:1.05;
+  color:var(--text);margin-bottom:56px;
+}
+.divider{height:1px;background:var(--border)}
+
+/* ── EXPERTISE ── */
+.exp-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--border);
+}
+.exp-card{
+  padding:44px 36px;
+  border-right:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;transition:background .3s;
+}
+.exp-card:nth-child(3n){border-right:none}
+.exp-card:nth-child(n+4){border-bottom:none}
+.exp-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  transform:scaleX(0);transform-origin:left;transition:transform .35s;
+}
+.exp-card:hover::before{transform:scaleX(1)}
+.exp-card:hover{background:var(--card)}
+.exp-n{
+  font-family:'Cormorant Garamond',serif;font-size:52px;
+  font-weight:600;color:var(--dim);line-height:1;margin-bottom:20px;
+}
+.exp-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:23px;font-weight:600;color:var(--text);margin-bottom:12px;
+}
+.exp-card p{font-size:13px;color:var(--muted);line-height:1.85}
+
+/* ── EXPERIENCE ── */
+.xp-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2px;background:var(--border);border:1px solid var(--border);
+}
+.xp-card{
+  background:var(--bg2);padding:52px 44px;
+  position:relative;overflow:hidden;transition:background .3s;
+}
+.xp-card:hover{background:var(--card)}
+.xp-card::after{
+  content:'';position:absolute;bottom:0;left:44px;right:44px;height:1px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.xp-card:hover::after{opacity:1}
+.xp-card.span2{grid-column:1/-1}
+.xp-period{
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.xp-period::before{content:'';width:16px;height:1px;background:var(--gold)}
+.xp-role{
+  font-family:'Cormorant Garamond',serif;
+  font-size:30px;font-weight:600;color:var(--text);
+  margin-bottom:8px;line-height:1.1;
+}
+.xp-org{font-size:13px;color:var(--muted);margin-bottom:20px;letter-spacing:.02em}
+.xp-desc{font-size:14px;color:var(--muted);line-height:1.85;max-width:640px}
+
+/* ── CERTS ── */
+.certs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.cert-card{
+  padding:32px 20px;border:1px solid var(--border);
+  background:var(--card);text-align:center;
+  transition:border-color .2s,background .2s;
+}
+.cert-card:hover{border-color:var(--gold);background:var(--card2)}
+.cert-card .ci{font-size:22px;color:var(--gold);margin-bottom:14px;display:block}
+.cert-card h4{font-size:13px;font-weight:500;color:var(--text);line-height:1.4}
+.cert-card span{font-size:10px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-top:6px;display:block}
+
+/* ── VENTURE ── */
+.venture-sec{
+  background:linear-gradient(140deg,var(--card) 0%,var(--bg2) 100%);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:110px 6%;
+}
+.venture-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  background:var(--border);border:1px solid var(--border);
+}
+.venture-card{
+  background:var(--bg2);padding:56px 52px;
+  position:relative;overflow:hidden;transition:background .3s;
+}
+.venture-card:hover{background:var(--card)}
+.venture-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+}
+.venture-num{
+  font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.26em;
+  color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:10px;
+}
+.venture-num::before{content:'';width:16px;height:1px;background:var(--gold)}
+.venture-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(48px,5.5vw,80px);
+  font-weight:700;line-height:.88;
+  color:var(--text);margin-bottom:8px;letter-spacing:-.03em;
+}
+.venture-name em{color:var(--gold);font-style:italic}
+.venture-geo{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:28px}
+.venture-desc{font-size:15px;color:var(--muted);line-height:1.95;margin-bottom:36px}
+.venture-pillars{display:flex;flex-direction:column;gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:36px}
+.vp{
+  background:var(--bg2);padding:22px 26px;
+  display:flex;gap:16px;align-items:flex-start;transition:background .2s;
+}
+.vp:hover{background:var(--card2)}
+.vp-dot{width:7px;height:7px;background:var(--gold);flex-shrink:0;margin-top:7px}
+.vp-t{font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px}
+.vp-s{font-size:12px;color:var(--muted);line-height:1.75}
+
+/* ── INTERESTS ── */
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tag{
+  padding:9px 20px;border:1px solid var(--border);
+  font-size:12px;letter-spacing:.04em;
+  color:var(--muted);transition:all .2s;cursor:default;
+}
+.tag:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── CONTACT ── */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.cl h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,3.5vw,44px);font-weight:600;
+  color:var(--text);margin-bottom:20px;line-height:1.1;
+}
+.cl p{font-size:15px;color:var(--muted);line-height:1.95;margin-bottom:40px}
+.clink{
+  display:flex;align-items:center;gap:14px;font-size:14px;
+  color:var(--muted);text-decoration:none;transition:color .2s;
+  padding:14px 0;border-bottom:1px solid var(--border);
+}
+.clink:hover{color:var(--gold)}
+.clink-icon{
+  width:36px;height:36px;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:600;color:var(--gold);flex-shrink:0;
+}
+.cf{display:flex;flex-direction:column;gap:20px}
+.ff{display:flex;flex-direction:column;gap:8px}
+.ff label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.ff input,.ff textarea{
+  background:var(--card);border:1px solid var(--border);
+  padding:14px 16px;font-family:'Inter',sans-serif;
+  font-size:14px;color:var(--text);outline:none;
+  transition:border-color .2s;resize:none;
+}
+.ff input:focus,.ff textarea:focus{border-color:var(--gold)}
+.ff input::placeholder,.ff textarea::placeholder{color:var(--dim)}
+
+/* ── FOOTER ── */
+footer{
+  padding:32px 6%;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.fbrand{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--muted)}
+.fbrand span{color:var(--gold)}
+.fnote{font-size:11px;color:var(--dim);letter-spacing:.1em}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .exp-grid{grid-template-columns:1fr}
+  .exp-card{border-right:none}
+  .exp-card:nth-child(n){border-bottom:1px solid var(--border)}
+  .exp-card:last-child{border-bottom:none}
+  .xp-grid{grid-template-columns:1fr}
+  .certs-grid{grid-template-columns:repeat(2,1fr)}
+  .venture-inner{grid-template-columns:1fr}
+  .venture-card{padding:44px 32px}
+  .contact-wrap{grid-template-columns:1fr;gap:48px}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .certs-grid{grid-template-columns:1fr}
+  .hero-stats{max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">Prabal <span>Kapoor</span></a>
+  <ul class="nav-links">
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#venture">Ventures</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Connect</a>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-bg-glyph">PK</div>
+  <div class="hero-inner">
+    <div class="hero-tag">Finance · Strategy · Entrepreneurship</div>
+    <h1 class="hero-name">Prabal<br><span class="gold">Kapoor</span></h1>
+    <p class="hero-sub">Investor Relations &amp; Market Intelligence</p>
+    <p class="hero-bio">Finance professional, market researcher, and strategic thinker working at the intersection of asset management, equity research, and entrepreneurship. Previously at ICICI Prudential AMC, advising HNIs, family offices, and wealth managers across MF, PMS, and AIFs.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-gold">Get in Touch</a>
+      <a href="#experience" class="btn-outline">View Experience</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><span class="snum">6+</span><span class="slbl">Years Experience</span></div>
+      <div class="stat-box"><span class="snum">₹400Cr+</span><span class="slbl">AUM Advised</span></div>
+      <div class="stat-box"><span class="snum">2</span><span class="slbl">Ventures Built</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-band">
+  <div class="marquee-track">
+    <span class="mi">Asset Management</span><span class="mi">Equity Research</span><span class="mi">Market Intelligence</span><span class="mi">Business Strategy</span><span class="mi">Derivatives &amp; Trading</span><span class="mi">Wealth Management</span><span class="mi">Macroeconomics</span><span class="mi">Commodities</span><span class="mi">Geopolitics</span><span class="mi">Financial Intelligence</span>
+    <span class="mi">Asset Management</span><span class="mi">Equity Research</span><span class="mi">Market Intelligence</span><span class="mi">Business Strategy</span><span class="mi">Derivatives &amp; Trading</span><span class="mi">Wealth Management</span><span class="mi">Macroeconomics</span><span class="mi">Commodities</span><span class="mi">Geopolitics</span><span class="mi">Financial Intelligence</span>
+  </div>
+</div>
+
+<!-- ── EXPERTISE ── -->
+<div class="sec" id="expertise">
+  <div class="sec-label">Areas of Expertise</div>
+  <h2 class="sec-title reveal">Where knowledge<br>meets execution.</h2>
+  <div class="exp-grid">
+    <div class="exp-card reveal"><div class="exp-n">01</div><h3>Asset Management</h3><p>Investment discussions, asset allocation, and portfolio positioning across mutual funds, PMS, and AIFs for HNIs and family offices.</p></div>
+    <div class="exp-card reveal"><div class="exp-n">02</div><h3>Equity Research</h3><p>Fundamental analysis, valuation methodologies, and translating macroeconomic developments into actionable investment insights.</p></div>
+    <div class="exp-card reveal"><div class="exp-n">03</div><h3>Market Intelligence</h3><p>Connecting commodities, geopolitics, central bank policy, currencies, and supply chains to identify market trends and risks.</p></div>
+    <div class="exp-card reveal"><div class="exp-n">04</div><h3>Business Strategy</h3><p>Systems thinking, problem analysis, and strategic advisory for individuals and organizations navigating complex decisions.</p></div>
+    <div class="exp-card reveal"><div class="exp-n">05</div><h3>Derivatives &amp; Trading</h3><p>Hands-on experience in equity trading, derivatives, commodities, and understanding market structure dynamics.</p></div>
+    <div class="exp-card reveal"><div class="exp-n">06</div><h3>Wealth Management</h3><p>Investor behavior, relationship management, and business development in the wealth advisory and distribution ecosystem.</p></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── EXPERIENCE ── -->
+<div class="sec" id="experience">
+  <div class="sec-label">Professional Journey</div>
+  <h2 class="sec-title reveal">Built on markets.<br>Driven by insight.</h2>
+  <div class="xp-grid">
+    <div class="xp-card reveal">
+      <div class="xp-period">Prior Experience</div>
+      <div class="xp-role">Investor Relations &amp; Advisory</div>
+      <div class="xp-org">ICICI Prudential Asset Management Company</div>
+      <p class="xp-desc">Advised HNIs, family offices, and distribution partners across MF, PMS, and AIFs — managing portfolio discussions across <strong style="color:var(--text)">₹400Cr+ in AUM</strong>. Delivered market outlooks and investment positioning for over <strong style="color:var(--text)">50+ client relationships</strong>.</p>
+    </div>
+    <div class="xp-card reveal">
+      <div class="xp-period">Prior Experience</div>
+      <div class="xp-role">Research Analyst</div>
+      <div class="xp-org">Equity &amp; Commodity Markets</div>
+      <p class="xp-desc">Produced equity and commodity research across <strong style="color:var(--text)">10+ sectors</strong>, covering valuation, macro analysis, and derivatives — translating complex market data into actionable investment theses.</p>
+    </div>
+    <div class="xp-card reveal">
+      <div class="xp-period">Ongoing · India</div>
+      <div class="xp-role">Founder</div>
+      <div class="xp-org">BhaavBrief — Indian Commodities Intelligence</div>
+      <p class="xp-desc">Built an independent financial intelligence platform from scratch — growing to <strong style="color:var(--text)">2,000+ readers</strong> across commodities, macro, and geopolitics. Covering MCX, NSE, and global commodity markets with daily briefings delivered at 9:47 AM.</p>
+    </div>
+    <div class="xp-card reveal">
+      <div class="xp-period">Ongoing · Europe</div>
+      <div class="xp-role">Founder</div>
+      <div class="xp-org">Boursee — European Market Intelligence</div>
+      <p class="xp-desc">Built a European market intelligence platform covering <strong style="color:var(--text)">168+ stocks</strong> across AEX, DAX, CAC 40, FTSE 100, IBEX 35, and FTSE MIB — with a stock screener, ETF analyser, sector heatmap, bond yields, and investor tax guides.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── CERTIFICATIONS ── -->
+<div class="sec">
+  <div class="sec-label">Credentials</div>
+  <h2 class="sec-title reveal">NISM Certified<br>Across Markets.</h2>
+  <div class="certs-grid">
+    <div class="cert-card reveal"><span class="ci">✦</span><h4>Equity Derivatives</h4><span>NISM Certified</span></div>
+    <div class="cert-card reveal"><span class="ci">✦</span><h4>Commodity Derivatives</h4><span>NISM Certified</span></div>
+    <div class="cert-card reveal"><span class="ci">✦</span><h4>Research Analysis</h4><span>NISM Certified</span></div>
+    <div class="cert-card reveal"><span class="ci">✦</span><h4>Mutual Fund Distribution</h4><span>NISM Certified</span></div>
+    <div class="cert-card reveal"><span class="ci">✦</span><h4>PMS Distribution</h4><span>NISM Certified</span></div>
+  </div>
+</div>
+
+<!-- ── VENTURES ── -->
+<div class="venture-sec" id="venture">
+  <div style="max-width:1200px;margin:0 auto 56px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:16px">
+    <div>
+      <div class="sec-label">Ventures</div>
+      <h2 class="sec-title reveal" style="margin-bottom:0">Built from first principles.</h2>
+    </div>
+  </div>
+  <div class="venture-inner">
+
+    <!-- BhaavBrief -->
+    <div class="venture-card reveal">
+      <div class="venture-num">01 · India</div>
+      <h2 class="venture-name">Bhaav<em>Brief</em></h2>
+      <div class="venture-geo">bhaavbrief.in &nbsp;·&nbsp; MCX · NSE · NCDEX</div>
+      <p class="venture-desc">Indian commodities and macro intelligence — built to answer not just <em>what</em> is happening, but <em>why</em>. Connecting commodity markets, geopolitics, and central bank policy into a single, coherent daily narrative. 2,000+ readers.</p>
+      <div class="venture-pillars">
+        <div class="vp"><div class="vp-dot"></div><div><div class="vp-t">Commodities &amp; Macro</div><div class="vp-s">Daily briefings on gold, crude, agri, and base metals — with macro and supply-chain context.</div></div></div>
+        <div class="vp"><div class="vp-dot"></div><div><div class="vp-t">Geopolitics &amp; Markets</div><div class="vp-s">Global events translated into market consequences — currencies, flows, policy impact.</div></div></div>
+        <div class="vp"><div class="vp-dot"></div><div><div class="vp-t">9:47 AM Daily Brief</div><div class="vp-s">Synthesized intelligence for investors and professionals who need clarity, not noise.</div></div></div>
+      </div>
+      <a href="https://bhaavbrief.in" target="_blank" class="btn-gold" style="font-size:11px;padding:12px 28px">Visit BhaavBrief →</a>
+    </div>
+
+    <!-- Boursee -->
+    <div class="venture-card reveal">
+      <div class="venture-num">02 · Europe</div>
+      <h2 class="venture-name">Bour<em>see</em></h2>
+      <div class="venture-geo">boursee.com &nbsp;·&nbsp; AEX · DAX · CAC 40 · FTSE 100</div>
+      <p class="venture-desc">European equity and macro intelligence — covering 168+ stocks across six major exchanges, with a stock screener, ETF analyser, sector heatmap, government bond yields, and investor tax guides for Dutch, German, and French investors.</p>
+      <div class="venture-pillars">
+        <div class="vp"><div class="vp-dot"></div><div><div class="vp-t">Stock &amp; ETF Screener</div><div class="vp-s">168+ European equities and UCITS ETFs — filtered by exchange, sector, P/E, dividend yield, and 52-week range.</div></div></div>
+        <div class="vp"><div class="vp-dot"></div><div><div class="vp-t">Macro Intelligence</div><div class="vp-s">ECB Watch, bond yield monitor with BTP–Bund spread, and macro–equity bridge briefings.</div></div></div>
+        <div class="vp"><div class="vp-dot"></div><div><div class="vp-t">Investor Guides &amp; Tax Tools</div><div class="vp-s">Dutch Box 3 estimator, Vorabpauschale calculator, PEA eligibility guide, and broker comparison.</div></div></div>
+      </div>
+      <a href="https://boursee.com" target="_blank" class="btn-gold" style="font-size:11px;padding:12px 28px">Visit Boursee →</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── INTERESTS ── -->
+<div class="sec">
+  <div class="sec-label">Intellectual Interests</div>
+  <h2 class="sec-title reveal">Curiosity without<br>boundaries.</h2>
+  <div class="tags reveal">
+    <span class="tag">Financial Markets</span><span class="tag">Macroeconomics</span><span class="tag">Commodities</span><span class="tag">Geopolitics</span><span class="tag">Business Strategy</span><span class="tag">Entrepreneurship</span><span class="tag">Technology</span><span class="tag">Investor Psychology</span><span class="tag">Wealth Creation</span><span class="tag">Global Affairs</span><span class="tag">Supply Chains</span><span class="tag">Central Banking</span><span class="tag">Derivatives</span><span class="tag">Management Consulting</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── CONTACT ── -->
+<div class="sec" id="contact">
+  <div class="sec-label">Get in Touch</div>
+  <div class="contact-wrap">
+    <div class="cl reveal">
+      <h3>Let's build something<br>worth talking about.</h3>
+      <p>Open to conversations around investment advisory, market research, strategic consulting, or entrepreneurial collaborations.</p>
+      <a href="https://www.linkedin.com/in/prabal-kapoor-189254151/" target="_blank" class="clink">
+        <div class="clink-icon">in</div>
+        linkedin.com/in/prabalkapoor
+      </a>
+    </div>
+    <form class="cf reveal" action="https://formspree.io/f/xgobepad" method="POST">
+      <div class="ff"><label>Your name</label><input type="text" name="name" placeholder="e.g. Arjun Mehta" required></div>
+      <div class="ff"><label>Email address</label><input type="email" name="email" placeholder="arjun@example.com" required></div>
+      <div class="ff"><label>Message</label><textarea name="message" rows="5" placeholder="What would you like to discuss?" required></textarea></div>
+      <button type="submit" class="btn-gold" style="align-self:flex-start">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="fbrand">Prabal <span>Kapoor</span></div>
+  <div class="fnote">Finance · Strategy · Entrepreneurship</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(
+  entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)} }),
+  {threshold:.1, rootMargin:'0px 0px -40px 0px'}
+);
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
